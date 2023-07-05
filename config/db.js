@@ -1,4 +1,5 @@
 import { Sequelize } from 'sequelize';
+import 'dotenv/config';
 
 const sequelize = new Sequelize({
   dialect: 'postgres',
@@ -7,11 +8,5 @@ const sequelize = new Sequelize({
   password: process.env.DB_PASSWORD,
   database: process.env.DATABASE,
 });
-
-try {
-  await sequelize.authenticate();
-} catch (error) {
-  console.error('Unable to connect to the database:', error);
-}
 
 export default sequelize;
